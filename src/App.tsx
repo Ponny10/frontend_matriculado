@@ -1,12 +1,11 @@
 import './App.css'
+import { Navigation } from './routes/Navigation'
 
 export const App = () => {
 
   return (
     <>
-      <div>
-        <h1>Matriculado</h1>
-      </div>
+      <Navigation />
     </>
   )
 }
