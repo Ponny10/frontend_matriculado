@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { _Routes } from '../interfaces/routes.interfaces';
+import { _Routes } from '../models/routes.interfaces';
 
 /* Cargar Componente o Módulo bajo demanda */
 /* Cambiar el nombre de los chunks, con vite no aplica, npm si */

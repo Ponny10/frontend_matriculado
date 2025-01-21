@@ -1,4 +1,4 @@
 /* Configurar variable de entorno */
 export default {
-    url: '',
+    url: 'http://localhost:5215/',
 }

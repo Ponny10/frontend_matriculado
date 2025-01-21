@@ -15,3 +15,9 @@ interface _ResponseApi<T = null> {
     message?: string;
     status?: number;
 }
+
+type Dispatch = typeof import('_store').Store.dispatch;
+
+interface _RouteState {
+    auth: _AuthState;
+}

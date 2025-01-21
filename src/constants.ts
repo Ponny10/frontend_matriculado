@@ -1,7 +1,7 @@
 import environment from "./environment/environment";
 
 /* Función que retorna todas las peticiones al API */
-export const request = async (props: _RequestProps) => {
+export const requestApi = async (props: _RequestProps) => {
 
     const {method, target, data} = props;
 
