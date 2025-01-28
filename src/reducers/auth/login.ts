@@ -27,6 +27,10 @@ export const loginSlice = createSlice({
         },
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         signIn: (state: _LoginState, action: PayloadAction<_LoginProps>): void => undefined,
+        logOut: (state: _LoginState) => ({
+            ...state,
+            isAuthenticated: false,
+        }),
     }
 });
 

@@ -20,4 +20,5 @@ type Dispatch = typeof import('_store').Store.dispatch;
 
 interface _RouteState {
     auth: _AuthState;
+    home: _HomeState;
 }

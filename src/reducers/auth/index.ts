@@ -2,7 +2,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 
 import Login, {actionsTypes as actionsLogin} from './login';
 
-export const actionsTypes = {
+export const actionsType = {
     login: actionsLogin,
 }
 

@@ -1,31 +1,34 @@
-import { useForm } from '../../../utils/useForm';
+import { useForm } from 'utils/useForm';
 import { useDispatch } from 'react-redux';
-import { actionsReducer as actions } from '../../../reducers';
+import { actionsReducer as actions } from 'reducers';
+import './styles.css';
 
 export const Login = () => {
 
-    const {handleInputChange, values} = useForm<_LoginProps>({
+    const { handleInputChange, values } = useForm<_LoginProps>({
         Usuario: '',
         Pass: '',
     });
 
-    const {Usuario, Pass} = values;
+    const { Usuario, Pass } = values;
 
     const dispatch = useDispatch();
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        console.log('Enviar', values);
-        
-        dispatch(actions.auth.login.signIn(values));
+
+        if (Usuario !== '' && Pass !== '') {
+            dispatch(actions.auth.login.signIn(values));
+        }
     }
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: '25%' }}>
-                <h1>Iniciar sesión</h1>
+        <div className='container_login'>
+            <div className='container_form'>
+                <p className='title'>Iniciar sesión</p>
+                <hr />
                 <form autoComplete="off">
-                    <div style={{ marginTop: '24px' }}>
+                    <div className='container_input'>
                         <label>Usuario:</label>
                         <input
                             onChange={handleInputChange}
@@ -34,11 +37,12 @@ export const Login = () => {
                             value={Usuario}
                         />
                     </div>
-                    <div style={{ marginTop: '24px' }}>
-                        <label>Usuario:</label>
+                    <div className='container_input'>
+                        <label>Contraseña:</label>
                         <input
-                            onChange={handleInputChange}
                             name="Pass"
+                            onChange={handleInputChange}
+                            required
                             type="password"
                             value={Pass}
                         />
@@ -51,7 +55,8 @@ export const Login = () => {
                         height: '36px',
                         borderRadius: '12px',
                         borderStyle: 'none',
-                        marginTop: '24px'
+                        margin: '24px 0px 0px',
+                        padding: '0px',
                     }}>
                     Enviar
                 </button>

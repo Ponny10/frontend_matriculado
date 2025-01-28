@@ -1,17 +1,15 @@
 import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { routes } from './routes';
-import logoHeader from './../assets/react.svg';
-import { _Routes } from '../models/routes.interfaces';
-import { Login } from '../matriculado/pages/auth';
+import { Login } from 'pages/auth';
+import { Navbar } from 'components/Navbar';
+import { _Routes } from 'models/routes.interfaces';
 
 export const Navigation = () => {
 
     const { isAuthenticated }: _LoginState = useSelector((state: _RouteState) => state.auth.login);
-
-
 
     return (
         <Suspense fallback={<h1>Loading...</h1>}>
@@ -19,20 +17,7 @@ export const Navigation = () => {
                 isAuthenticated ? (
                     <BrowserRouter >
                         <div>
-                            <nav>
-                                <img src={logoHeader} alt="Logo de header." />
-                                <ul>
-                                    {/* Rerrorer el menu de rutas dinámicas */}
-                                    {
-                                        routes.map(({ name, to }: _Routes) => (
-                                            <li key={name}>
-                                                <NavLink to={to}>{name}</NavLink>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </nav>
-
+                            <Navbar />
                             <Routes>
                                 {/* Recorrer las rutas */}
                                 {

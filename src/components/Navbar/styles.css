@@ -1,0 +1,45 @@
+.container {
+    align-items: center;
+    background-color: rgb(245, 195, 32);
+    display: flex;
+    height: 90px;
+}
+
+.container_nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.container_ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.container_li {
+    margin-right: 12px;
+}
+
+.container_nav_link {
+    color: #404040;
+    font-size: 24px;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.container_nav_link.active {
+    font-weight: 700;
+}
+
+.button_log_out {
+    height: 36px;
+    border-style: none;
+    border-radius: 12px;
+    padding: 0px 12px;
+    font-size: 12px;
+}

@@ -10,7 +10,7 @@ export const useForm = <T>( initialState: T ) => {
     }
 
 
-    const handleInputChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
 
         setValues({
             ...values,

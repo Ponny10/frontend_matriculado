@@ -1,6 +1,7 @@
-import { requestApi } from '../../../constants';
+import { requestApi } from '_constants';
 
-const SignIn = async(props: _LoginProps) => {
+
+const SignIn = async (props: _LoginProps) => {
     return requestApi({
         method: 'POST',
         target: 'autenticacion',

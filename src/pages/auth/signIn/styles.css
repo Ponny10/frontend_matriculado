@@ -1,0 +1,38 @@
+.container_login {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center;
+}
+
+.container_form {
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px 30px;
+    border: 1px solid #474747;
+    border-radius: 6px;
+    width: 30%;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.container_input {
+    margin-top: 24px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    margin-left: 12px;
+    border: 1px solid #474747;
+    border-radius: 12px;
+    height: 30px;
+    flex: 1;
+    padding: 6px 12px;
+}

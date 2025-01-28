@@ -7,6 +7,19 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    /* Paths */
+    "paths": {
+      "*": ["./src/*"],
+      "assets": ["./src/assets"],
+      "components": ["./src/components"],
+      "_constants": ["./src/constants"],
+      "middlewares": ["./src/middlewares"],
+      "models": ["./src/models"],
+      "pages": ["./src/pages"],
+      "reducers": ["./src/reducers"],
+      "utils": ["./src/utils"],
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

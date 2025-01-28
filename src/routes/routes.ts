@@ -1,23 +1,23 @@
 import { lazy } from 'react';
-import { _Routes } from '../models/routes.interfaces';
+import { _Routes } from 'models/routes.interfaces';
 
 /* Cargar Componente o Módulo bajo demanda */
 /* Cambiar el nombre de los chunks, con vite no aplica, npm si */
-const Matriculado = lazy(() => import(/* webpackChunkName: "NuevoChunkMatriculado" */ '../matriculado/pages/Matriculado'));
-const Test = lazy(() => import(/* webpackChunkName: "NuevoChunkMatriculado" */ '../matriculado/pages/Test'));
+const Dashboard = lazy(() => import(/* webpackChunkName: "NuevoChunkMatriculado" */ 'pages/home/dashboard'));
+const AddStudent = lazy(() => import('pages/home/addStudent'));
 
 /* Cargar rutas dinámicas */
 export const routes: _Routes[] = [
     {
         to: '/matriculado',
         path: 'matriculado',
-        Component: Matriculado,
+        Component: Dashboard,
         name: 'Matriculado',
     },
     {
-        to: '/test',
-        path: 'test',
-        Component: Test,
-        name: 'Test',
-    },
+        Component: AddStudent,
+        name: 'Inscribir',
+        path: 'inscribir',
+        to: '/inscribir',
+    }
 ]
