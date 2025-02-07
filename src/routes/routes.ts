@@ -5,6 +5,7 @@ import { _Routes } from 'models/routes.interfaces';
 /* Cambiar el nombre de los chunks, con vite no aplica, npm si */
 const Dashboard = lazy(() => import(/* webpackChunkName: "NuevoChunkMatriculado" */ 'pages/home/dashboard'));
 const AddStudent = lazy(() => import('pages/home/addStudent'));
+const QualifyStudent = lazy(() => import('pages/home/qualifyStudent'));
 
 /* Cargar rutas dinámicas */
 export const routes: _Routes[] = [
@@ -19,5 +20,11 @@ export const routes: _Routes[] = [
         name: 'Inscribir',
         path: 'inscribir',
         to: '/inscribir',
+    },
+    {
+        Component: QualifyStudent,
+        name: 'Calificar',
+        path: 'calificar',
+        to: '/calificar',
     }
 ]

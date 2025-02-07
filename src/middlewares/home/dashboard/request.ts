@@ -23,7 +23,55 @@ const AddStudent = async (props: _StudentProps) => {
     })
 }
 
+const EditStudent = async (student: _Student) => {
+    return requestApi({
+        method: 'PUT',
+        target: 'actualizarAlumno',
+        data: student,
+    })
+}
+
+const DeleteStudent = async (idStudent: number) => {
+    return requestApi({
+        method: 'DELETE',
+        target: `eliminarAlumno?id=${idStudent}`,
+    });
+}
+
+const GetCalifications = async (matriculaId: number) => {
+    return requestApi({
+        method: 'GET',
+        target: `calificaciones?matriculaId=${matriculaId}`,
+    });
+}
+
+const AddCalification = async (props: _PropsAddCalification) => {
+    const data: _PropsAddCalification = {
+        descripcion: props.descripcion,
+        nota: props.nota,
+        porcentaje: props.porcentaje,
+        matriculaId: props.matriculaId,
+    }
+    return requestApi({
+        method: 'POST',
+        target: `calificacion`,
+        data,
+    });
+}
+
+const DeleteCalification = async (id: number) => {
+    return requestApi({
+        method: 'DELETE',
+        target: `calificacion?id=${id}`,
+    });
+}
+
 export default {
     AddStudent,
+    DeleteStudent,
+    DeleteCalification,
+    EditStudent,
+    GetCalifications,
+    AddCalification,
     StudentsList,
 }

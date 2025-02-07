@@ -1,17 +1,67 @@
+import { useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useForm } from 'utils/useForm';
+import { actionsReducer as actions } from 'reducers';
 
 export const AddStudent = () => {
 
+    const { navigateHome } = useSelector((state: _RouteState) => state.web.general);
+    const { student } = useSelector((state: _RouteState) => state.home.dashboard);
+
     const { handleInputChange, values } = useForm<_StudentProps>({
-        id_asig: 0,
-        direccion: '',
-        dni: '',
-        edad: 0,
-        email: '',
-        nombre: '',
+        id_asig: student ? student.asignatura ? student.asignatura : 0 : 0,
+        direccion: student ? student.direccion : '',
+        dni: student ? student.dni : '',
+        edad: student ? student.edad : 0,
+        email: student ? student.email : '',
+        nombre: student ? student.nombre : '',
     });
 
     const { direccion, dni, edad, email, id_asig, nombre } = values;
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+        if (student?.id) {
+            return dispatch(actions.home.dashboard.editStudent({
+                direccion,
+                dni,
+                edad,
+                email,
+                id: student.id,
+                nombre,
+            }));
+        } else {
+
+            if (nombre !== '' && dni !== '' && email !== '') {
+                return dispatch(actions.home.dashboard.addStudent({
+                    direccion,
+                    dni,
+                    edad,
+                    email,
+                    nombre,
+                    id_asig: id_asig === 0 ? 1 : id_asig,
+                }));
+            }
+            else {
+                alert('Todos los campos son requeridos.');
+            }
+        }
+    }
+
+    useEffect(() => {
+        if (navigateHome) {
+            navigate('/matriculado');
+            dispatch(actions.general.general.setHomeNavigate(false));
+            dispatch(actions.home.dashboard.resetStudent());
+        }
+    }, [dispatch, navigate, navigateHome]);
 
     return (
         <div style={{ padding: '30px' }}>
@@ -20,6 +70,7 @@ export const AddStudent = () => {
                 <div className='container_input'>
                     <label>DNI:</label>
                     <input
+                        disabled={student?.dni ? true : false}
                         onChange={handleInputChange}
                         name='dni'
                         type="text"
@@ -65,17 +116,36 @@ export const AddStudent = () => {
                 <div className='container_input'>
                     <label>Asignatura:</label>
                     <select
-                        value={values.id_asig}
+                        value={student?.asignatura ? student.asignatura : values.id_asig}
                         name='id_asig'
                         onChange={handleInputChange}>
-                        <option value='0'>Seleccione una opción</option>
-                        <option value='1'>Matemáticas</option>
-                        <option value='2'>Development</option>
+                        <option value={0}>Seleccione una opción</option>
+                        <option value={1}>Matemáticas</option>
+                        <option value={2}>Informática</option>
+                        <option value={3}>Inglés</option>
+                        <option value={4}>Lengua</option>
                     </select>
                 </div>
             </form >
+            <button
+                onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)}
+                style={{
+                    width: '100%',
+                    height: '36px',
+                    borderRadius: '12px',
+                    borderStyle: 'none',
+                    margin: '24px 0px 0px',
+                    padding: '0px',
+                }}>
+                {
+                    student?.dni ? 'Actualizar' : 'Guardar'
+                }
+            </button>
             {
                 JSON.stringify(id_asig, null, 5)
+            }
+            {
+                JSON.stringify(typeof id_asig, null, 5)
             }
         </div >
     )

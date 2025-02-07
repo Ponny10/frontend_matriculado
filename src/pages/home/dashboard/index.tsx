@@ -13,12 +13,13 @@ export const Dashboard = () => {
 
   useEffect(() => {
     dispatch(actions.home.dashboard.getStudents(usuario));
-  }, []);
+    dispatch(actions.home.dashboard.resetStudent());
+  }, [dispatch, usuario]);
 
   return (
     <div>
       {
-        students ? <StudentsList students={students} /> : <p>No hay data</p>
+        students ? <StudentsList students={students}  /> : <p>No hay data</p>
       }
     </div>
   )
