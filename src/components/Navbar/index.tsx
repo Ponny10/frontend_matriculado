@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import './styles.css';
+import { Button } from 'components';
 import { routes } from 'routes/routes';
 import logoHeader from 'assets/react.svg';
 import { _Routes } from 'models/routes.interfaces';
@@ -34,7 +35,12 @@ export const Navbar = () => {
                         ))
                     }
                 </ul>
-                <button className='button_log_out' onClick={() => logOut()}>Cerrar sesión</button>
+                <Button
+                    className='button_log_out'
+                    onClick={() => logOut()}
+                    text='Cerrar sesión'
+                    width={160}
+                />
             </nav>
         </div>
     )

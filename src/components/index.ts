@@ -1,5 +1,2 @@
-import { Navbar } from './Navbar';
-
-export {
-    Navbar
-}
+export { Navbar } from './Navbar';
+export { Button } from './Button'

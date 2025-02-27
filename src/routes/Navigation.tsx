@@ -4,7 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { routes } from './routes';
 import { Login } from 'pages/auth';
-import { Navbar } from 'components/Navbar';
+import { Navbar } from 'components';
 import { _Routes } from 'models/routes.interfaces';
 
 export const Navigation = () => {
