@@ -1,6 +1,8 @@
-import { useForm } from 'utils/useForm';
 import { useDispatch } from 'react-redux';
+
 import { actionsReducer as actions } from 'reducers';
+import { useForm } from 'utils/useForm';
+import { Text } from 'components';
 import './styles.css';
 
 export const Login = () => {
@@ -25,11 +27,16 @@ export const Login = () => {
     return (
         <div className='container_login'>
             <div className='container_form'>
-                <p className='title'>Iniciar sesión</p>
+                <Text
+                    fontSize={30}
+                    fontWeight={'600'}
+                    text={'Iniciar sesión'}
+                    textAlign='center'
+                />
                 <hr />
                 <form autoComplete="off">
                     <div className='container_input'>
-                        <label>Usuario:</label>
+                        <Text fontSize={18} fontWeight='400' text='Usuario:'  />
                         <input
                             onChange={handleInputChange}
                             name="Usuario"
@@ -38,7 +45,7 @@ export const Login = () => {
                         />
                     </div>
                     <div className='container_input'>
-                        <label>Contraseña:</label>
+                        <Text fontSize={18} fontWeight='400' text='Contraseña:'  />
                         <input
                             name="Pass"
                             onChange={handleInputChange}
