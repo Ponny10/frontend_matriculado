@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from 'utils/useForm';
 import { actionsReducer as actions } from 'reducers';
+import { Button } from 'components';
 
 export const AddStudent = () => {
 
@@ -127,20 +128,19 @@ export const AddStudent = () => {
                     </select>
                 </div>
             </form >
-            <button
+            <Button
+                backgroundColor='rgba(61, 151, 41, 0.95)'
+                borderRadius={12}
+                borderStyle='none'
+                color='rgb(255, 255, 255)'
+                fontSize={18}
+                height={44}
+                marginTop={18}
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)}
-                style={{
-                    width: '100%',
-                    height: '36px',
-                    borderRadius: '12px',
-                    borderStyle: 'none',
-                    margin: '24px 0px 0px',
-                    padding: '0px',
-                }}>
-                {
-                    student?.dni ? 'Actualizar' : 'Guardar'
-                }
-            </button>
+                text={student?.dni ? 'Actualizar' : 'Guardar'}
+                textAlign='center'
+                width={'100%'}
+            />
             {
                 JSON.stringify(id_asig, null, 5)
             }

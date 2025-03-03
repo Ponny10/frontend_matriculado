@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { actionsReducer as actions } from 'reducers';
 import { useForm } from 'utils/useForm';
-import { Text } from 'components';
+import { Button, Text } from 'components';
 import './styles.css';
 
 export const Login = () => {
@@ -45,7 +45,7 @@ export const Login = () => {
                         />
                     </div>
                     <div className='container_input'>
-                        <Text fontSize={18} fontWeight='400' text='Contraseña:'  />
+                        <Text fontSize={18} fontWeight='400' text='Contraseña:'/>
                         <input
                             name="Pass"
                             onChange={handleInputChange}
@@ -55,18 +55,19 @@ export const Login = () => {
                         />
                     </div>
                 </form>
-                <button
+                <Button
+                    backgroundColor='rgba(144, 103, 176, 0.8)'
+                    borderRadius={12}
+                    borderStyle='none'
+                    color='rgb(255, 255, 255)'
+                    fontSize={18}
+                    height={44}
+                    marginTop={12}
                     onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)}
-                    style={{
-                        width: '100%',
-                        height: '36px',
-                        borderRadius: '12px',
-                        borderStyle: 'none',
-                        margin: '24px 0px 0px',
-                        padding: '0px',
-                    }}>
-                    Enviar
-                </button>
+                    text='Iniciar sesión'
+                    textAlign='center'
+                    width={'100%'}
+                />
             </div>
         </div>
     )

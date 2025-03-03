@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.css';
+import { Button } from 'components';
 import { actionsReducer as actions } from 'reducers';
 
 export const QualifyStudent = () => {
@@ -39,13 +40,13 @@ export const QualifyStudent = () => {
     }, [dispatch, registration]);
 
     let notaFinal: number = 0;
-    
+
     if (califications) {
         califications.map((cal: _Calification) => (
             notaFinal = notaFinal + cal.nota * (cal.porcentaje / 100)
         ));
     }
-    
+
     return (
         <div>
             <h2>QualifyStudent {registration}</h2>
@@ -67,7 +68,20 @@ export const QualifyStudent = () => {
                                         <td>{cal.descripcion}</td>
                                         <td>{cal.nota}</td>
                                         <td>{cal.porcentaje}</td>
-                                        <td onClick={() => deleteCalification(cal.id!)} style={{ cursor: 'pointer' }}>❌</td>
+                                        <td>
+                                            <Button
+                                                backgroundColor='transparent'
+                                                borderRadius={12}
+                                                borderStyle='dashed'
+                                                color='rgb(255, 255, 255)'
+                                                fontSize={18}
+                                                height={44}
+                                                onClick={() => deleteCalification(cal.id!)}
+                                                text='❌'
+                                                textAlign='center'
+                                                width={90}
+                                            />
+                                        </td>
                                     </tr>
                                 ))
                             )
@@ -106,7 +120,18 @@ export const QualifyStudent = () => {
                                 />
                             </th>
                             <th>
-                                <button className='button_log_out' onClick={() => addCalification()}>Agregar</button>
+                                <Button
+                                    backgroundColor='rgba(61, 151, 41, 0.95)'
+                                    borderRadius={12}
+                                    borderStyle='none'
+                                    color='rgb(255, 255, 255)'
+                                    fontSize={18}
+                                    height={44}
+                                    onClick={() => addCalification()}
+                                    text='Agregar'
+                                    textAlign='center'
+                                    width={90}
+                                />
                             </th>
                         </tr>
                         <p>NOTA FINAL = {notaFinal}</p>

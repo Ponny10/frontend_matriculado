@@ -1,25 +1,30 @@
 
-export const Text = (props: TextProps) => {
+export const Text = (props: _TextProps) => {
 
     const {
+        color = 'rgba(0, 0, 0, .8)',
+        children = '',
         fontSize = 12,
-        fontWeight = '100',
+        fontWeight = '200',
         style,
         text,
-        textAlign = 'right',
+        textAlign = 'left',
         type = 'p',
     } = props;
 
-    const Type = type;
+    const Type: TextType = type;
 
     return (
         <Type
             style={{
                 ...style,
+                color,
                 fontSize,
                 fontWeight,
                 textAlign,
             }}
-        >{text}</Type>
+        >
+            {text ? text : children}
+        </Type>
     )
 }

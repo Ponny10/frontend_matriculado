@@ -36,9 +36,15 @@ export const Navbar = () => {
                     }
                 </ul>
                 <Button
-                    className='button_log_out'
+                    backgroundColor='rgba(225, 70, 70, 0.95)'
+                    borderRadius={12}
+                    borderStyle='none'
+                    color='rgb(255, 255, 255)'
+                    fontSize={18}
+                    height={44}
                     onClick={() => logOut()}
                     text='Cerrar sesión'
+                    textAlign='center'
                     width={160}
                 />
             </nav>

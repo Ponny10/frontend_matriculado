@@ -23,3 +23,8 @@ interface _RouteState {
     home: _HomeState;
     web: _GeneralRoot
 }
+
+/* Tipos generales compartidos */
+
+type BorderStyle = 'solid' | 'dotted' | 'dashed' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset' | 'none';
+type TypeStyle = React.CSSProperties;
