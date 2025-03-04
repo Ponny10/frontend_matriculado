@@ -1,14 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import './styles.css';
+import { _Routes } from 'models/routes.interfaces';
+import { actionsReducer as actions } from 'reducers';
 import { Button } from 'components';
 import { routes } from 'routes/routes';
 import logoHeader from 'assets/react.svg';
-import { _Routes } from 'models/routes.interfaces';
-import { actionsReducer as actions } from 'reducers';
+import './styles.css';
+import { useState } from 'react';
 
 export const Navbar = () => {
+
+    const [toggle, setToggle] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
