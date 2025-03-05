@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { StudentsList } from './studentsList';
 import { actionsReducer as actions } from 'reducers';
+import './styles.css';
 
 export const Dashboard = () => {
 
@@ -17,7 +18,7 @@ export const Dashboard = () => {
   }, [dispatch, usuario]);
 
   return (
-    <div>
+    <div className='container_dashboard'>
       {
         students ? <StudentsList students={students}  /> : <p>No hay data</p>
       }

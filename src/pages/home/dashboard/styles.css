@@ -1,0 +1,28 @@
+.container_dashboard {
+}
+
+
+/* Students */
+
+.container_student {
+    border: 1px solid #3D3D3D;
+    overflow: scroll;
+}
+
+.student_table {
+    border-spacing: 1px;
+}
+
+.student_thead {
+    background-color: #3D3D3D;
+    color: #e6e6e6;
+}
+
+.student_th {
+    padding: 2px 24px;
+}
+
+.student_tr {
+    border: 1px solid #3D3D3D;
+}
+

@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import { actionsReducer as actions } from 'reducers';
+import './styles.css';
 
 interface _StudentListProps {
   students: _Student[];
@@ -23,36 +25,36 @@ export const StudentsList = ({students}: _StudentListProps) => {
   };
 
   return (
-    <div>
-      <table>
-        <thead>
+    <div className='container_student'>
+      <table className='student_table'>
+        <thead className='student_thead'>
           <tr>
-            <th>ID</th>
-            <th>DNI</th>
-            <th>NOMBRE</th>
-            <th>EDAD</th>
-            <th>DIRECCION</th>
-            <th>EMAIL</th>
-            <th>ASIGNATURA</th>
-            <th>EDITAR</th>
-            <th>CALIFICAR</th>
-            <th>ELIMINAR</th>
+            <th className='student_th'>ID</th>
+            <th  className='student_th'>DNI</th>
+            <th  className='student_th'>NOMBRE</th>
+            <th  className='student_th'>EDAD</th>
+            <th  className='student_th'>DIRECCION</th>
+            <th  className='student_th'>EMAIL</th>
+            <th  className='student_th'>ASIGNATURA</th>
+            <th  className='student_th'>EDITAR</th>
+            <th  className='student_th'>CALIFICAR</th>
+            <th  className='student_th'>ELIMINAR</th>
           </tr>
         </thead>
         <tbody>
           {
             students.map((student: _Student) => (
               <tr key={student.id}>
-                <th>{student.id}</th>
-                <th>{student.dni}</th>
-                <th>{student.nombre}</th>
-                <th>{student.edad}</th>
-                <th>{student.direccion}</th>
-                <th>{student.email}</th>
-                <th>{student.asignatura}</th>
-                <th onClick={() => setStudentEdit(student)}><NavLink to={'/inscribir'} >Editar</NavLink></th>
-                <th onClick={() => setRegistration(student.matriculaId!)}><NavLink to={'/calificar'}>Calificar</NavLink></th>
-                <th onClick={() => deleteStudent(student.id!)}>Borrar</th>
+                <th className='student_tr'>{student.id}</th>
+                <th className='student_tr'>{student.dni}</th>
+                <th className='student_tr'>{student.nombre}</th>
+                <th className='student_tr'>{student.edad}</th>
+                <th className='student_tr'>{student.direccion}</th>
+                <th className='student_tr'>{student.email}</th>
+                <th className='student_tr'>{student.asignatura}</th>
+                <th className='student_tr' onClick={() => setStudentEdit(student)}><NavLink to={'/inscribir'} >Editar</NavLink></th>
+                <th className='student_tr' onClick={() => setRegistration(student.matriculaId!)}><NavLink to={'/calificar'}>Calificar</NavLink></th>
+                <th className='student_tr' onClick={() => deleteStudent(student.id!)}>Borrar</th>
               </tr>
             ))
           }

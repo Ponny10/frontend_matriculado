@@ -26,27 +26,29 @@ export const Login = () => {
 
     return (
         <div className='container_login'>
-            <div className='container_form'>
+            <div className='login_form'>
                 <Text
-                    fontSize={30}
-                    fontWeight={'600'}
+                    fontSize={24}
+                    fontWeight={'400'}
                     text={'Iniciar sesión'}
                     textAlign='center'
                 />
                 <hr />
                 <form autoComplete="off">
-                    <div className='container_input'>
-                        <Text fontSize={18} fontWeight='400' text='Usuario:'  />
+                    <div className='login_content_input'>
+                        <Text fontSize={18} fontWeight='400' text='Usuario:' style={{width: '100%'}}  />
                         <input
+                            className='login_form_input'
                             onChange={handleInputChange}
                             name="Usuario"
                             type="text"
                             value={Usuario}
                         />
                     </div>
-                    <div className='container_input'>
+                    <div className='login_content_input'>
                         <Text fontSize={18} fontWeight='400' text='Contraseña:'/>
                         <input
+                            className='login_form_input'
                             name="Pass"
                             onChange={handleInputChange}
                             required
@@ -62,7 +64,7 @@ export const Login = () => {
                     color='rgb(255, 255, 255)'
                     fontSize={18}
                     height={44}
-                    marginTop={12}
+                    marginTop={0}
                     onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)}
                     text='Iniciar sesión'
                     textAlign='center'

@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import './styles.css';
 import { _Routes } from 'models/routes.interfaces';
 import { actionsReducer as actions } from 'reducers';
-import { Button } from 'components';
+import { Button, Icon } from 'components';
 import { routes } from 'routes/routes';
 import logoHeader from 'assets/react.svg';
-import './styles.css';
-import { useState } from 'react';
+import menu from 'assets/menu.svg';
 
 export const Navbar = () => {
 
@@ -22,33 +23,44 @@ export const Navbar = () => {
     }
 
     return (
-        <div className='container'>
-            <nav className='container_nav'>
-                <img src={logoHeader} alt="Logo de header." />
-                <ul className='container_ul'>
-                    {/* Rerrorer el menu de rutas dinámicas */}
-                    {
-                        routes.map(({ name, to }: _Routes) => (
-                            <li key={name} className='container_li'>
-                                <NavLink
-                                    to={to}
-                                    className={({ isActive }) => isActive ? "container_nav_link active" : "container_nav_link"}
-                                >{name}</NavLink>
-                            </li>
-                        ))
-                    }
-                </ul>
-                <Button
-                    backgroundColor='rgba(225, 70, 70, 0.95)'
-                    borderRadius={12}
-                    borderStyle='none'
-                    color='rgb(255, 255, 255)'
-                    fontSize={18}
-                    height={44}
-                    onClick={() => logOut()}
-                    text='Cerrar sesión'
-                    textAlign='center'
-                    width={160}
+        <div className='nav_container'>
+            <nav className='nav_content'>
+                <Icon src={logoHeader} alt='Logo de header.' width={44} />
+                <div className={`nav_menu ${toggle && 'active'}`}>
+                    <ul className='nav_menu_ul'>
+                        {/* Rerrorer el menu de rutas dinámicas */}
+                        {
+                            routes.map(({ name, to }: _Routes) => (
+                                <li key={name} className={`nav_li ${window.location.pathname === to && 'active'}`}>
+                                    <NavLink
+                                        className={({ isActive }) => isActive ? "nav_link active" : "nav_link"}
+                                        onClick={() => setToggle(false)}
+                                        to={to}
+                                    >{name}</NavLink>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <Button
+                        backgroundColor='rgba(225, 70, 70, 0.95)'
+                        borderRadius={12}
+                        borderStyle='none'
+                        color='rgb(255, 255, 255)'
+                        fontSize={14}
+                        height={36}
+                        onClick={() => logOut()}
+                        text='Cerrar sesión'
+                        textAlign='center'
+                        width={120}
+                        margin={12}
+                    />
+                </div>
+                <Icon
+                    alt='Menu de opciones.'
+                    className='nav_menu_icon'
+                    onClick={() => setToggle((active) => !active)}
+                    src={menu}
+                    width={30}
                 />
             </nav>
         </div>
