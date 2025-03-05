@@ -1,0 +1,9 @@
+.container_add_student {
+    padding: 12px;
+}
+
+.add_student_input {
+    display: flex;
+    flex-direction: column;
+    margin: 18px 0%;
+}

@@ -36,7 +36,7 @@ export const Login = () => {
                 <hr />
                 <form autoComplete="off">
                     <div className='login_content_input'>
-                        <Text fontSize={18} fontWeight='400' text='Usuario:' style={{width: '100%'}}  />
+                        <Text fontSize={18} fontWeight='400' text='Usuario:' />
                         <input
                             className='login_form_input'
                             onChange={handleInputChange}

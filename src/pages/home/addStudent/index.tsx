@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from 'utils/useForm';
 import { actionsReducer as actions } from 'reducers';
-import { Button } from 'components';
+import { Button, Text } from 'components';
+import './styles.css';
 
 export const AddStudent = () => {
 
@@ -65,12 +66,17 @@ export const AddStudent = () => {
     }, [dispatch, navigate, navigateHome]);
 
     return (
-        <div style={{ padding: '30px' }}>
-            <p className='titlee'>Nuevo alumno</p>
+        <div className='container_add_student'>
+            <Text
+                fontSize={18}
+                text={student?.dni ? 'Actualizar' : 'Guardar'}
+                fontWeight='400'
+            />
             <form autoComplete="off">
-                <div className='container_input'>
-                    <label>DNI:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='DNI:'/>
                     <input
+                        className='login_form_input'
                         disabled={student?.dni ? true : false}
                         onChange={handleInputChange}
                         name='dni'
@@ -78,45 +84,50 @@ export const AddStudent = () => {
                         value={dni}
                     />
                 </div>
-                <div className='container_input'>
-                    <label>Nombre:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='Nombre:'/>
                     <input
+                        className='login_form_input'
                         onChange={handleInputChange}
                         name='nombre'
                         type='text'
                         value={nombre}
                     />
                 </div>
-                <div className='container_input'>
-                    <label>Dirección:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='Dirección:'/>
                     <input
+                        className='login_form_input'
                         onChange={handleInputChange}
                         name='direccion'
                         type='text'
                         value={direccion}
                     />
                 </div>
-                <div className='container_input'>
-                    <label>Edad:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='Edad:'/>
                     <input
+                        className='login_form_input'
                         onChange={handleInputChange}
                         name='edad'
                         type='number'
                         value={edad}
                     />
                 </div>
-                <div className='container_input'>
-                    <label>Email:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='Correo electrónico:'/>
                     <input
+                        className='login_form_input'
                         onChange={handleInputChange}
                         name='email'
                         type='text'
                         value={email}
                     />
                 </div>
-                <div className='container_input'>
-                    <label>Asignatura:</label>
+                <div className='add_student_input'>
+                    <Text fontSize={18} fontWeight='400' text='Asignatura:'/>
                     <select
+                        className='login_form_input'
                         value={student?.asignatura ? student.asignatura : values.id_asig}
                         name='id_asig'
                         onChange={handleInputChange}>
@@ -141,12 +152,6 @@ export const AddStudent = () => {
                 textAlign='center'
                 width={'100%'}
             />
-            {
-                JSON.stringify(id_asig, null, 5)
-            }
-            {
-                JSON.stringify(typeof id_asig, null, 5)
-            }
         </div >
     )
 }
