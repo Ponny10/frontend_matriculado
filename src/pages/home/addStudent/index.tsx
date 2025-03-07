@@ -127,11 +127,11 @@ export const AddStudent = () => {
                 <div className='add_student_input'>
                     <Text fontSize={18} fontWeight='400' text='Asignatura:'/>
                     <select
-                        className='login_form_input'
+                        className='login_form_select'
                         value={student?.asignatura ? student.asignatura : values.id_asig}
                         name='id_asig'
                         onChange={handleInputChange}>
-                        <option value={0}>Seleccione una opción</option>
+                        <option value={0}><p>Seleccione una opción</p></option>
                         <option value={1}>Matemáticas</option>
                         <option value={2}>Informática</option>
                         <option value={3}>Inglés</option>

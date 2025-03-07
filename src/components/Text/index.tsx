@@ -3,7 +3,7 @@ export const Text = (props: _TextProps) => {
 
     const {
         color = 'rgba(0, 0, 0, .8)',
-        children = '',
+        children,
         fontSize = 12,
         fontWeight = '200',
         style,

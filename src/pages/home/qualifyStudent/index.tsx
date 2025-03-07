@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.css';
-import { Button } from 'components';
+import { Button, Text } from 'components';
 import { actionsReducer as actions } from 'reducers';
 
 export const QualifyStudent = () => {
@@ -48,96 +48,97 @@ export const QualifyStudent = () => {
     }
 
     return (
-        <div>
-            <h2>QualifyStudent {registration}</h2>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Descripción</td>
-                            <td>Nota</td>
-                            <td>Porcentaje</td>
-                            <td>Eliminar</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            califications && (
-                                califications.map((cal: _Calification) => (
-                                    <tr key={cal.id}>
-                                        <td>{cal.descripcion}</td>
-                                        <td>{cal.nota}</td>
-                                        <td>{cal.porcentaje}</td>
-                                        <td>
-                                            <Button
-                                                backgroundColor='transparent'
-                                                borderRadius={12}
-                                                borderStyle='dashed'
-                                                color='rgb(255, 255, 255)'
-                                                fontSize={18}
-                                                height={44}
-                                                onClick={() => deleteCalification(cal.id!)}
-                                                text='❌'
-                                                textAlign='center'
-                                                width={90}
-                                            />
-                                        </td>
-                                    </tr>
-                                ))
-                            )
-                        }
-                        <tr>
-                            <th>
-                                <input
-                                    type="text"
-                                    id="descripcion"
-                                    name="descripcion"
-                                    value={calification[0].descripcion}
-                                    onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
-                                        ...calification[0], descripcion: target.value,
-                                    }])} />
-                            </th>
-                            <th>
-                                <input
-                                    type="number"
-                                    id="nota"
-                                    name="nota"
-                                    value={calification[0].nota}
-                                    onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
-                                        ...calification[0], nota: parseInt(target.value),
-                                    }])}
-                                />
-                            </th>
-                            <th>
-                                <input
-                                    type="number"
-                                    id="porcentaje"
-                                    name="porcentaje"
-                                    value={calification[0].porcentaje}
-                                    onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
-                                        ...calification[0], porcentaje: parseInt(target.value),
-                                    }])}
-                                />
-                            </th>
-                            <th>
-                                <Button
-                                    backgroundColor='rgba(61, 151, 41, 0.95)'
-                                    borderRadius={12}
-                                    borderStyle='none'
-                                    color='rgb(255, 255, 255)'
-                                    fontSize={18}
-                                    height={44}
-                                    onClick={() => addCalification()}
-                                    text='Agregar'
-                                    textAlign='center'
-                                    width={90}
-                                />
-                            </th>
-                        </tr>
-                        <p>NOTA FINAL = {notaFinal}</p>
-                    </tbody>
-                </table>
-            </div>
+        <div className='container_student'>
+            <Text type='h2' fontSize={18} fontWeight='700'>QualifyStudent {registration}</Text>
+            <table className='student_table'>
+                <thead className='student_thead'>
+                    <tr className='student_th'>
+                        <td>Descripción</td>
+                        <td>Nota</td>
+                        <td>Porcentaje</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        califications && (
+                            califications.map((cal: _Calification) => (
+                                <tr key={cal.id}>
+                                    <td className='student_tr'>{cal.descripcion}</td>
+                                    <td className='student_tr'>{cal.nota}</td>
+                                    <td className='student_tr'>{cal.porcentaje}</td>
+                                    <td className='student_tr'>
+                                        <Button
+                                            backgroundColor='transparent'
+                                            borderRadius={12}
+                                            borderStyle='dashed'
+                                            color='rgb(255, 255, 255)'
+                                            fontSize={18}
+                                            height={44}
+                                            onClick={() => deleteCalification(cal.id!)}
+                                            text='❌'
+                                            textAlign='center'
+                                            width={90}
+                                        />
+                                    </td>
+                                </tr>
+                            ))
+                        )
+                    }
+                    <tr>
+                        <th>
+                            <input
+                                className='login_form_input'
+                                type="text"
+                                id="descripcion"
+                                name="descripcion"
+                                value={calification[0].descripcion}
+                                onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
+                                    ...calification[0], descripcion: target.value,
+                                }])} />
+                        </th>
+                        <th>
+                            <input
+                                className='login_form_input'
+                                type="number"
+                                id="nota"
+                                name="nota"
+                                value={calification[0].nota}
+                                onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
+                                    ...calification[0], nota: parseInt(target.value),
+                                }])}
+                            />
+                        </th>
+                        <th>
+                            <input
+                                className='login_form_input'
+                                type="number"
+                                id="porcentaje"
+                                name="porcentaje"
+                                value={calification[0].porcentaje}
+                                onChange={({ target }: ChangeEvent<HTMLInputElement>) => setCalification([{
+                                    ...calification[0], porcentaje: parseInt(target.value),
+                                }])}
+                            />
+                        </th>
+                        <th>
+                            <Button
+                                backgroundColor='rgba(61, 151, 41, 0.95)'
+                                borderRadius={12}
+                                borderStyle='none'
+                                color='rgb(255, 255, 255)'
+                                fontSize={18}
+                                height={40}
+                                onClick={() => addCalification()}
+                                text='Agregar'
+                                textAlign='center'
+                                width={90}
+                            />
+                        </th>
+                    </tr>
+                    <p>NOTA FINAL = {notaFinal}</p>
+                </tbody>
+            </table>
         </div>
     )
 }

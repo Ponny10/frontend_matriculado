@@ -7,3 +7,50 @@
     flex-direction: column;
     margin: 18px 0%;
 }
+
+.login_form_select {
+    height: 36px;
+    width: 100%;
+    /* Hace que el select ocupe todo el ancho del contenedor */
+    padding: 6px 12px;
+    /* Espaciado dentro del select */
+    border: 1px solid #3D3D3D;
+    /* Borde gris claro */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    background-color: #f9f9f9;
+    /* Fondo ligeramente gris */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    color: #333;
+    /* Color de texto */
+    /* appearance: none; */
+    /* Elimina la flecha predeterminada en algunos navegadores */
+    outline: none;
+    -webkit-appearance: none;
+    /* Elimina la flecha en Safari */
+    -moz-appearance: none;
+    /* Elimina la flecha en Firefox */
+    appearance: none;
+    /* Elimina la flecha en todos los navegadores */
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23ccc%22%20d%3D%22M8%2010l8%2010%208-10%22%2F%3E%3C%2Fsvg%3E');
+    /* Añadir una flecha */
+    background-position: right 6px center;
+    /* Ubicación de la flecha */
+    background-repeat: no-repeat;
+    /* Aseguramos que hay espacio a la derecha para la flecha */
+}
+
+/* Estilos para las opciones dentro del select */
+.login_form_select option {
+    /* Hace que el select ocupe todo el ancho del contenedor */
+    padding: 6px 12px;
+    /* Espaciado dentro del select */
+    border: 1px solid #3D3D3D;
+    font-size: 18px;
+    /* Tamaño de la fuente de las opciones */
+    background-color: #ffffff;
+    /* Fondo blanco para las opciones */
+    color: #3D3D3D;
+    /* Color de texto */
+}
